@@ -13,7 +13,10 @@ SCRIPT
 
 Vagrant.configure("2") do |config|
   config.vm.box = "ubuntu/bionic64"
-  config.memory = 2048
   config.vm.provision "shell", inline: $script
   config.vm.network "public_network"
+  config.vm.provider "virtualbox" do |v|
+    v.memory = 2048
+    v.cpus = 2
+  end
 end
