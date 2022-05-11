@@ -3,7 +3,7 @@ apt-get update
 apt-get install git docker docker-compose -y
 systemctl enable docker && systemctl start docker
 chown -R vagrant:vagrant /media
-git clone https://github.com/sebgl/htpc-download-box.git
+git clone https://github.com/EthicalObligation/htpc-download-box.git
 chown -R vagrant:vagrant htpc-download-box
 cd htpc-download-box
 cp .env.example .env
