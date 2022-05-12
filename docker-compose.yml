@@ -68,7 +68,7 @@ services:
       - ${ROOT}/config/plex/db:/config # plex database
       - ${ROOT}/config/plex/transcode:/transcode # temp transcoded files
       - ${ROOT}/complete:/data # media library
-      - ${ROOT}/incomplete:/data
+      - ${ROOT}/downloads:/downloads
 
   bazarr:
     container_name: bazarr
