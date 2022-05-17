@@ -83,3 +83,14 @@ services:
       - ${ROOT}/complete:/media # media library
       - ${ROOT}/downloads:/downloads
     restart: "unless-stopped"
+  ombi:
+    image: lscr.io/linuxserver/ombi:latest
+    container_name: ombi
+    environment:
+      - PUID=${PUID}
+      - PGID=${PGID}
+      - TZ=Africa/Johannesburg
+    volumes:
+      - ${ROOT}/config/ombi:/config # config files
+    ports:
+      - 3579:3579
