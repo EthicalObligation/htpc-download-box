@@ -86,11 +86,10 @@ services:
   ombi:
     image: lscr.io/linuxserver/ombi:latest
     container_name: ombi
+    network_mode: "host"
     environment:
       - PUID=${PUID}
       - PGID=${PGID}
       - TZ=Africa/Johannesburg
     volumes:
       - ${ROOT}/config/ombi:/config # config files
-    ports:
-      - 3579:3579
