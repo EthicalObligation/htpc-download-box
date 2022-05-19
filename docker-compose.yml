@@ -1,17 +1,18 @@
 version: "3.4"
 services:
-  deluge:
-    container_name: deluge
-    image: linuxserver/deluge:latest
-    restart: unless-stopped
-    network_mode: host
+  qbittorrent:
+    image: lscr.io/linuxserver/qbittorrent:latest
+    container_name: qbittorrent
     environment:
       - PUID=${PUID} # default user id, defined in .env
       - PGID=${PGID} # default group id, defined in .env
       - TZ=${TZ} # timezone, defined in .env
+      - WEBUI_PORT=8112
     volumes:
       - ${ROOT}/downloads:/downloads # downloads folder
-      - ${ROOT}/config/deluge:/config # config files
+      - ${ROOT}/config/qbittorrent:/config # config files
+    network_mode: "host"
+    restart: unless-stopped
   
   jackett:
     container_name: jackett
